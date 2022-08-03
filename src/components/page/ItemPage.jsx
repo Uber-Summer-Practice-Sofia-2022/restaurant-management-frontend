@@ -62,14 +62,15 @@ export default function ItemPage() {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
-  const onFormSubmit = () => {
+  const onFormSubmit = async () => {
     const formData = new FormData();
 
     formData.append('name', values.name);
     formData.append('category', values.category);
     formData.append('price', values.price);
 
-    postData(`http://localhost:5000/restaurants/${id}/items`, formData);
+    const updateResult = await postData(`http://localhost:5000/restaurants/${id}/items`, formData);
+    window.location = ('http://localhost:3000/restaurants');
     toggleItemModal(true);
   };
 
