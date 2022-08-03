@@ -60,7 +60,7 @@ export default function RestaurantPage() {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
-  const onFormSubmit = () => {
+  const onFormSubmit = async () => {
     const formData = new FormData();
 
     formData.append('name', values.name);
@@ -69,7 +69,8 @@ export default function RestaurantPage() {
     formData.append('open_hours', values.openingHours);
     formData.append('close_hours', values.closingHours);
 
-    postData('http://localhost:5000/restaurants', formData);
+    const updateResult = await postData('http://localhost:5000/restaurants', formData);
+    window.location = ('http://localhost:3000/restaurants');
     toggleRestaurantModal(true);
   };
 

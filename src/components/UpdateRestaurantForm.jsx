@@ -83,7 +83,7 @@ export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
         variant="primary"
         type="submit"
       >
-        Update rest
+        Update Restaurant
       </Button>
     </Form>
   );

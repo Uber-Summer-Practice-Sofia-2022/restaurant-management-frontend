@@ -37,20 +37,16 @@ ImageContainer.propTypes = {
 
 export default function UpdateItemPage() {
   const [values, setValues] = useState(INITIAL_VALUES);
-  //const [showItemModal, toggleItemModal] = useState(false);
+  // const [showItemModal, toggleItemModal] = useState(false);
   const [logoSrc, setLogoSrc] = useState();
   const { restaurant_id } = useParams();
   const { item_id } = useParams();
 
   const fetchData = async () => {
-    // setDataLoading(true);
     const itemsData = await fetch(`${itemsAPI_URL}/restaurants/${restaurant_id}/items/${item_id}`);
-    // const swItemsDataStatus = swItemsData.status;
     const itemsDataJSON = await itemsData.json();
     console.log(itemsDataJSON);
     setValues(itemsDataJSON);
-    // setDataRequestStatus(swItemsDataStatus);
-    // setDataLoading(false);
   };
 
   useEffect(() => {
@@ -85,7 +81,7 @@ export default function UpdateItemPage() {
     formData.append('price', values.price);
 
     const updateResult = await postData(`http://localhost:5000/restaurants/${restaurant_id}/items/${item_id}`, formData);
-    window.location = (`http://localhost:3000/restaurants/${restaurant_id}/items`)
+    window.location = (`http://localhost:3000/restaurants/${restaurant_id}/items`);
     // toggleItemModal(true);
   };
 

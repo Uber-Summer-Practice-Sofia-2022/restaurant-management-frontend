@@ -75,10 +75,10 @@ export default function UpdateRestaurantPage() {
       body: data, // body data type must match "Content-Type" header
     });
 
-    return response.json(); // parses JSON response into native JavaScript objects
+    return response // parses JSON response into native JavaScript objects
   }
 
-  const onFormSubmit = () => {
+  const onFormSubmit = async () => {
     const formData = new FormData();
 
     formData.append('name', values.name);
@@ -87,11 +87,9 @@ export default function UpdateRestaurantPage() {
     formData.append('open_hours', values.openHours);
     formData.append('close_hours', values.closeHours);
 
-    // eslint-disable-next-line camelcase
-    postData(`http://localhost:5000/restaurants/${restaurant_id}`, formData);
-
+    const updateResult = await postData(`http://localhost:5000/restaurants/${restaurant_id}`, formData);
+    window.location = ('http://localhost:3000/restaurants');
   };
-
 
   return (
     <Container style={{
