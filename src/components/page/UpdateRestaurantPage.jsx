@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import rest from '../../static/rest.jpg';
 import UpdateRestaurantForm from '../UpdateRestaurantForm';
 
-// eslint-disable-next-line camelcase
 const restAPI_URL = 'http://127.0.0.1:5000';
 
 const INITIAL_VALUES = {
@@ -87,7 +86,7 @@ export default function UpdateRestaurantPage() {
     formData.append('open_hours', values.openHours);
     formData.append('close_hours', values.closeHours);
 
-    const updateResult = await postData(`http://localhost:5000/restaurants/${restaurant_id}`, formData);
+    const updateResult = await postData(`${restAPI_URL}/restaurants/${restaurant_id}`, formData);
     window.location = ('http://localhost:3000/restaurants');
   };
 

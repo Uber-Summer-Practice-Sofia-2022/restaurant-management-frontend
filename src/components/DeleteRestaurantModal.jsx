@@ -11,7 +11,7 @@ export default function RestaurantModal(props) {
   return (
     <Modal show={props.visible} onHide={props.onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Restaurant deletion</Modal.Title>
+        <Modal.Title>Delete Restaurant</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Row>

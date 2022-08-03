@@ -26,23 +26,29 @@ export default function ItemForm({ values, setValues, onSubmit }) {
     >
       <Form.Group className="mb-3" controlId="formName">
         <FloatingLabel label="Name">
-          <Form.Control required type="text" placeholder="Enter name" value={values.name} onChange={handleNameChange} />
+          <Form.Control required type="text" minLength={3} maxLength={20} placeholder="Enter name" value={values.name} onChange={handleNameChange} />
         </FloatingLabel>
+        <Form.Text className="text-muted">
+          Minumum 4 characters. Maximum 20 characters.
+        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formCategory">
         <FloatingLabel label="Category">
-          <Form.Control required type="text" placeholder="Enter category" value={values.category} onChange={handleCategoryChange} />
+          <Form.Control required type="text" minLength={3} maxLength={20} placeholder="Enter category" value={values.category} onChange={handleCategoryChange} />
         </FloatingLabel>
+        <Form.Text className="text-muted">
+          Minumum 4 characters. Maximum 20 characters.
+        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formPrice">
         <FloatingLabel label="Price">
-          <Form.Control required type="number" placeholder="Enter price" min="1" value={values.price} onChange={handlePriceChange} />
+          <Form.Control required type="number" step="0.01" min="1" placeholder="Enter price" value={values.price} onChange={handlePriceChange} />
         </FloatingLabel>
-        {/* <Form.Text className="text-muted">
-          Make it original.
-        </Form.Text> */}
+        <Form.Text className="text-muted">
+          Minumum 1 BGN.
+        </Form.Text>
       </Form.Group>
 
       <Button

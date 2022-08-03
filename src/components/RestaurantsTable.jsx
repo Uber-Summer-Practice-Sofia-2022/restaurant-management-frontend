@@ -4,6 +4,8 @@ import { Button, Container, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import DeleteRestaurantModal from './DeleteRestaurantModal';
 
+const restAPI_URL = 'http://127.0.0.1:5000';
+
 function TableContainer(props) {
   return (
     <Container style={{
@@ -35,32 +37,11 @@ export default function RestaurantsTable(props) {
   }
 
   function deleteRestaurant(restaurantId) {
-    fetch(`http://localhost:5000/restaurants/${restaurantId}`, {
+    fetch(`${restAPI_URL}/restaurants/${restaurantId}`, {
       method: 'DELETE',
     }).then(() => {
       props.onRestaurantDeleted(restaurantId);
       setShowDeleteModal(false);
-    }).catch((err) => {
-      console.error(err);
-    });
-  }
-
-  function updateRestaurant(restaurantId) {
-    fetch(`http://localhost:5000/restaurants/${restaurantId}`, {
-      method: 'POST',
-    }).then(() => {
-      console.log('updated');
-    }).catch((err) => {
-      console.error(err);
-    });
-  }
-
-  function updateRestaurant(restaurantId) {
-    fetch(`http://localhost:5000/restaurants/${restaurantId}`, {
-      method: 'POST',
-      body: data
-    }).then(() => {
-      console.log('updated');
     }).catch((err) => {
       console.error(err);
     });
@@ -110,7 +91,6 @@ export default function RestaurantsTable(props) {
                   <Link to={`/restaurants/${restaurantData.restaurant_id}`}>
                     <Button
                       style={{ backgroundColor: 'blue' }}
-                      onClick={() => updateRestaurant(restaurantData.restaurant_id)}
                     >
                       Update
                     </Button>
