@@ -74,14 +74,13 @@ export default function RestaurantForm({ values, setValues, onSubmit }) {
       <Form.Group className="mb-3" controlId="formAddress">
         <FloatingLabel label="Address">
           <Form.Control required type="text" minLength={5} maxLength={30} placeholder="Enter address" value={values.address} onChange={handleAddressChange} />
-
-          <Map isMarkerShown />
-          
         </FloatingLabel>
         <Form.Text className="text-muted">
           Minimum 5 characters. Maximum 30 characters.
         </Form.Text>
       </Form.Group>
+
+      <Map isMarkerShown />
 
       <Button
         variant="primary"

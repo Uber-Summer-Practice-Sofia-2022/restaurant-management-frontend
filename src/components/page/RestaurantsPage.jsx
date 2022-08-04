@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { element, func } from 'prop-types';
+// import { element, func } from 'prop-types';
 import LoadingContainer from '../common/LoadingContainer';
 import RestaurantsTable from '../RestaurantsTable';
 
@@ -55,7 +55,7 @@ export default function RestaurnatsPage() {
     <>
       <h1 id="pageHeader">Restaurants</h1>
       <label style={{
-        position: 'absolute', left: '70%', top: '17%',
+        position: 'absolute', top: '17%',
       }}
       >
         <input

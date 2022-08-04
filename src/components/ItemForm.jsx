@@ -29,7 +29,7 @@ export default function ItemForm({ values, setValues, onSubmit }) {
           <Form.Control required type="text" minLength={3} maxLength={20} placeholder="Enter name" value={values.name} onChange={handleNameChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
-          Minumum 4 characters. Maximum 20 characters.
+          Minumum 3 characters. Maximum 20 characters.
         </Form.Text>
       </Form.Group>
 
@@ -38,7 +38,7 @@ export default function ItemForm({ values, setValues, onSubmit }) {
           <Form.Control required type="text" minLength={3} maxLength={20} placeholder="Enter category" value={values.category} onChange={handleCategoryChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
-          Minumum 4 characters. Maximum 20 characters.
+          Minumum 3 characters. Maximum 20 characters.
         </Form.Text>
       </Form.Group>
 

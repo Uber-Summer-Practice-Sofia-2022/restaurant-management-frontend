@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
+import Map from './MyMap';
 
 export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
   const handleNameChange = (event) => setValues({
@@ -79,6 +80,8 @@ export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
           Minimum 5 characters. Maximum 30 characters.
         </Form.Text>
       </Form.Group>
+
+      <Map isMarkerShown />
 
       <Button
         variant="primary"
