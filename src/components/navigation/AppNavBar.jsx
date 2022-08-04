@@ -26,8 +26,8 @@ export default function AppNavBar() {
           <Navbar.Brand>Uber Delivery</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as="div"><MenuLink to="/">Home</MenuLink></Nav.Link>
-            <Nav.Link as="div"><MenuLink to="/planets">Planets</MenuLink></Nav.Link>
-            <Nav.Link as="div"><MenuLink to="/character">Character</MenuLink></Nav.Link>
+            {/*<Nav.Link as="div"><MenuLink to="/planets">Planets</MenuLink></Nav.Link>*/}
+            {/*<Nav.Link as="div"><MenuLink to="/character">Character</MenuLink></Nav.Link>*/}
             <Nav.Link as="div"><MenuLink to="/restaurants">Restaurants</MenuLink></Nav.Link>
             {/* eslint-disable-next-line max-len */}
             {/* <Nav.Link as="div"><MenuLink to="/restaurants/:id/items">Items</MenuLink></Nav.Link> */}
