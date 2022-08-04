@@ -11,7 +11,7 @@ export default function DeleteItemModal(props) {
   return (
     <Modal show={props.visible} onHide={props.onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Item deletion</Modal.Title>
+        <Modal.Title>Delete Item</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Row>

@@ -36,47 +36,48 @@ export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
     >
       <Form.Group className="mb-3" controlId="formName">
         <FloatingLabel label="Name">
-          <Form.Control required type="text" placeholder="Enter name" value={values.name} onChange={handleNameChange} />
+          <Form.Control required type="text" minLength={3} maxLength={20} placeholder="Enter name" value={values.name} onChange={handleNameChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
-          Make it original.
+          Minumum 3 characters. Maximum 20 characters.
         </Form.Text>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formAddress">
-        <FloatingLabel label="Address">
-          <Form.Control required type="text" placeholder="Enter address" value={values.address} onChange={handleAddressChange} />
-        </FloatingLabel>
-        {/* <Form.Text className="text-muted">
-          Make it original.
-        </Form.Text> */}
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formDeliveryPrice">
         <FloatingLabel label="Delivery Price">
-          <Form.Control required type="number" placeholder="Enter delivery price" min="1" value={values.deliveryPrice} onChange={handleDeliveryPriceChange} />
+          <Form.Control required type="number" step="0.01" min="2" placeholder="Enter delivery price" value={values.deliveryPrice} onChange={handleDeliveryPriceChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
-          Minimum 3 BGN.
+          Minimum 2 BGN.
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formOpeningHours">
         <FloatingLabel label="Opening hours">
-          <Form.Control required type="text" placeholder="Enter opening hours" value={values.openHours} onChange={handleOpeningHoursChange} />
+          <Form.Control required type="time" step="1" placeholder="Enter opening hours" value={values.openingHours} onChange={handleOpeningHoursChange} />
         </FloatingLabel>
-        {/* <Form.Text className="text-muted">
-          Make it original.
-        </Form.Text> */}
+        <Form.Text className="text-muted">
+          Required format: HH:MM:SS
+        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formOpeningHours">
         <FloatingLabel label="Closing hours">
-          <Form.Control required type="text" placeholder="Enter closing hours" value={values.closeHours} onChange={handleClosingHoursChange} />
+          <Form.Control required type="time" step="1" placeholder="Enter closing hours" value={values.closingHours} onChange={handleClosingHoursChange} />
         </FloatingLabel>
-        {/* <Form.Text className="text-muted">
-          Make it original.
-        </Form.Text> */}
+        <Form.Text className="text-muted">
+          Required format: HH:MM:SS
+        </Form.Text>
+      </Form.Group>
+
+
+      <Form.Group className="mb-3" controlId="formAddress">
+        <FloatingLabel label="Address">
+          <Form.Control required type="text" minLength={5} maxLength={30} placeholder="Enter address" value={values.address} onChange={handleAddressChange} />
+        </FloatingLabel>
+        <Form.Text className="text-muted">
+          Minimum 5 characters. Maximum 30 characters.
+        </Form.Text>
       </Form.Group>
 
       <Button

@@ -41,7 +41,7 @@ export default function ItemPage() {
 
   useEffect(() => {
     setLogoSrc(item);
-  });
+  }, [values.affinity]);
 
   async function postData(url = '', data = {}) {
     // Default options are marked with *
@@ -62,15 +62,14 @@ export default function ItemPage() {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
-  const onFormSubmit = async () => {
+   const onFormSubmit = () => {
     const formData = new FormData();
 
     formData.append('name', values.name);
     formData.append('category', values.category);
     formData.append('price', values.price);
 
-    const updateResult = await postData(`http://localhost:5000/restaurants/${id}/items`, formData);
-    window.location = ('http://localhost:3000/restaurants');
+    postData(`http://localhost:5000/restaurants/${id}/items`, formData);
     toggleItemModal(true);
   };
 
