@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { element, func } from 'prop-types';
 import LoadingContainer from '../common/LoadingContainer';
 import RestaurantsTable from '../RestaurantsTable';
 
@@ -34,6 +35,11 @@ export default function RestaurnatsPage() {
 
   const handleOnClick = () => {
     setIsChecked(!isChecked);
+    if (isChecked) {
+      document.getElementById('pageHeader').innerHTML = 'Open Restaurants';
+    } else {
+      document.getElementById('pageHeader').innerHTML = 'Restaurants';
+    }
     fetchData();
   };
 
