@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { element, func } from 'prop-types';
 import LoadingContainer from '../common/LoadingContainer';
 import RestaurantsTable from '../RestaurantsTable';
 
@@ -10,6 +11,7 @@ const restAPI_URL = 'http://127.0.0.1:5000';
 export default function RestaurnatsPage() {
   const [restaurantsData, setRestaurantsData] = useState([]);
   const [dataLoading, setDataLoading] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const [dataRequestStatus, setDataRequestStatus] = useState(200);
 
   const deleteRestaurant = (restaurantId) => {
@@ -20,13 +22,25 @@ export default function RestaurnatsPage() {
 
   const fetchData = async () => {
     setDataLoading(true);
-    const swRestaurantsData = await fetch(`${restAPI_URL}/restaurants`);
+    setIsChecked(!isChecked);
+    const fetchURL = `${restAPI_URL}/restaurants?open=${isChecked.toString()}`;
+    const swRestaurantsData = await fetch(fetchURL);
     const swRestaurantsDataStatus = swRestaurantsData.status;
     const swRestaurantsDataJSON = await swRestaurantsData.json();
     console.log(swRestaurantsDataJSON);
     setRestaurantsData(swRestaurantsDataJSON);
     setDataRequestStatus(swRestaurantsDataStatus);
     setDataLoading(false);
+  };
+
+  const handleOnClick = () => {
+    setIsChecked(!isChecked);
+    if (isChecked) {
+      document.getElementById('pageHeader').innerHTML = 'Open Restaurants';
+    } else {
+      document.getElementById('pageHeader').innerHTML = 'Restaurants';
+    }
+    fetchData();
   };
 
   useEffect(() => {
@@ -39,7 +53,20 @@ export default function RestaurnatsPage() {
 
   return (
     <>
-      <h1>Open restaurants</h1>
+      <h1 id="pageHeader">Restaurants</h1>
+      <label style={{
+        position: 'absolute', left: '70%', top: '17%',
+      }}
+      >
+        <input
+          id="checker"
+          onClick={handleOnClick}
+          // checked={isChecked}
+          style={{ width: '40px' }}
+          type="checkbox"
+        />
+        Open Restaurants
+      </label>
       <Link to="/restaurant">
         <Button
           variant="primary"
@@ -62,7 +89,9 @@ export default function RestaurnatsPage() {
       >
         {dataLoading ? (
           <LoadingContainer />
-        ) : (<RestaurantsTable restaurantsData={restaurantsData} onRestaurantDeleted={deleteRestaurant} />)}
+        )
+        // eslint-disable-next-line max-len
+          : (<RestaurantsTable restaurantsData={restaurantsData} onRestaurantDeleted={deleteRestaurant} />)}
       </Container>
 
     </>
