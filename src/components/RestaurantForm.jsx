@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
+import Geocode from 'react-geocode';
 import Map from './MyMap';
+
+Geocode.setApiKey('AIzaSyAWKZD9Gq69EX1kiAJ8V2OCZXeLJR0QyYE&v');
 
 export default function RestaurantForm({ values, setValues, onSubmit }) {
   const handleNameChange = (event) => setValues({
@@ -76,10 +79,10 @@ export default function RestaurantForm({ values, setValues, onSubmit }) {
           <Form.Control required type="text" minLength={5} maxLength={150} placeholder="Enter address" value={values.address} onChange={handleAddressChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
-          Minimum 5 characters. Maximum 30 characters.
+          Minimum 5 characters. Maximum 150 characters.
         </Form.Text>
       </Form.Group>
-      
+
       <Map
         isMarkerShown
         onMarkerChange={(lat, lng) => {
