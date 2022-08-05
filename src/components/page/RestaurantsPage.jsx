@@ -55,7 +55,7 @@ export default function RestaurnatsPage() {
     <>
       <h1 id="pageHeader">Restaurants</h1>
       <label style={{
-        position: 'absolute', left: '70%', top: '17%',
+        position: 'absolute', top: '17%',
       }}
       >
         <input

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
+import Map from './MyMap';
 
 export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
   const handleNameChange = (event) => setValues({
@@ -73,12 +74,28 @@ export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
 
       <Form.Group className="mb-3" controlId="formAddress">
         <FloatingLabel label="Address">
-          <Form.Control required type="text" minLength={5} maxLength={30} placeholder="Enter address" value={values.address} onChange={handleAddressChange} />
+          <Form.Control required type="text" minLength={5} maxLength={150} placeholder="Enter address" value={values.address} onChange={handleAddressChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
-          Minimum 5 characters. Maximum 30 characters.
+          Minimum 5 characters. Maximum 150 characters.
         </Form.Text>
       </Form.Group>
+
+      <Map
+        isMarkerShown
+        onMarkerChange={(lat, lng) => {
+          Geocode.fromLatLng(lat, lng).then(
+            (response) => {
+              const address = response.results[0].formatted_address;
+              console.log(address);
+              setValues({
+                ...values,
+                address,
+              });
+            },
+          );
+        }}
+      />
 
       <Button
         variant="primary"
