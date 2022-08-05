@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Geocode from 'react-geocode';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import Map from './MyMap';
-
-Geocode.setApiKey('AIzaSyAWKZD9Gq69EX1kiAJ8V2OCZXeLJR0QyYE&v');
 
 export default function RestaurantForm({ values, setValues, onSubmit }) {
   const handleNameChange = (event) => setValues({
@@ -76,29 +73,28 @@ export default function RestaurantForm({ values, setValues, onSubmit }) {
 
       <Form.Group className="mb-3" controlId="formAddress">
         <FloatingLabel label="Address">
-          <Form.Control required type="text" minLength={5} maxLength={30} placeholder="Enter address" value={values.address} onChange={handleAddressChange} />
-
-          <Map
-            isMarkerShown
-            onMarkerChange={(lat, lng) => {
-              Geocode.fromLatLng(lat, lng).then(
-                (response) => {
-                  const address = response.results[0].formatted_address;
-                  console.log(address);
-                  setValues({
-                    ...values,
-                    address,
-                  });
-                },
-              );
-            }}
-          />
-
+          <Form.Control required type="text" minLength={5} maxLength={150} placeholder="Enter address" value={values.address} onChange={handleAddressChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
           Minimum 5 characters. Maximum 30 characters.
         </Form.Text>
       </Form.Group>
+      
+      <Map
+        isMarkerShown
+        onMarkerChange={(lat, lng) => {
+          Geocode.fromLatLng(lat, lng).then(
+            (response) => {
+              const address = response.results[0].formatted_address;
+              console.log(address);
+              setValues({
+                ...values,
+                address,
+              });
+            },
+          );
+        }}
+      />
 
       <Button
         variant="primary"
