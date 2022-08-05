@@ -52,12 +52,13 @@ export default function ItemsTable(props) {
         <Table striped bordered hover>
           <thead>
             <tr style={{
-              backgroundColor: 'white',
+              backgroundColor: '#C1F9B5',
             }}
             >
               <th>Name</th>
               <th align="right">Category</th>
               <th align="right">Price</th>
+              <th align="right"> </th>
               <th align="right"> </th>
             </tr>
           </thead>
@@ -72,7 +73,7 @@ export default function ItemsTable(props) {
                 <td align="center">
                   <Link to={`/restaurants/${itemData.restaurant_id}/items/${itemData.item_id}`}>
                     <Button
-                      style={{ backgroundColor: 'blue' }}
+                      style={{ backgroundColor: '#80F366', border: '8px black', color: 'black' }}
                     >
                       Update
                     </Button>
@@ -80,7 +81,7 @@ export default function ItemsTable(props) {
                 </td>
                 <td align="center">
                   <Button
-                    style={{ backgroundColor: 'blue' }}
+                    style={{ backgroundColor: '#80F366', border: '8px black', color: 'black' }}
                     onClick={() => {
                       setSelectedItem(itemData);
                       setShowDeleteModal(true);

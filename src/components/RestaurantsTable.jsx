@@ -54,7 +54,7 @@ export default function RestaurantsTable(props) {
         <Table striped bordered hover>
           <thead>
             <tr style={{
-              backgroundColor: 'white',
+              backgroundColor: '#F1A2B1',
             }}
             >
               <th>Name</th>
@@ -62,8 +62,9 @@ export default function RestaurantsTable(props) {
               <th align="right">Delivery price</th>
               <th align="right">Opening hours</th>
               <th align="right">Closing hours</th>
-              <th align="right" />
-              <th align="right" />
+              <th align="right"> </th>
+              <th align="right"> </th>
+              <th align="right"> </th>
             </tr>
           </thead>
           <tbody>
@@ -79,7 +80,7 @@ export default function RestaurantsTable(props) {
                 <td align="center">
                   <Link to={`/restaurants/${restaurantData.restaurant_id}/items`}>
                     <Button style={{
-                      backgroundColor: 'blue',
+                      backgroundColor: '#F15673', border: '8px black'
 
                     }}
                     >
@@ -90,7 +91,7 @@ export default function RestaurantsTable(props) {
                 <td align="center">
                   <Link to={`/restaurants/${restaurantData.restaurant_id}`}>
                     <Button
-                      style={{ backgroundColor: 'blue' }}
+                      style={{ backgroundColor: '#F15673', border: '8px black' }}
                     >
                       Update
                     </Button>
@@ -98,7 +99,7 @@ export default function RestaurantsTable(props) {
                 </td>
                 <td align="center">
                   <Button
-                    style={{ backgroundColor: 'blue' }}
+                    style={{ backgroundColor: '#F15673', border: '8px black' }}
                     onClick={() => {
                       setSelectedRestaurant(restaurantData);
                       setShowDeleteModal(true);

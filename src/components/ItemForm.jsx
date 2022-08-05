@@ -54,6 +54,11 @@ export default function ItemForm({ values, setValues, onSubmit }) {
       <Button
         variant="primary"
         type="submit"
+        style={{
+          backgroundColor: '#50F1BE',
+          border: '8px black',
+          color: 'black'
+        }}
       >
         Save item
       </Button>

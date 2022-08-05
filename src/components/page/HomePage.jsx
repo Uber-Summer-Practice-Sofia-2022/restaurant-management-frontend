@@ -1,10 +1,7 @@
-import React from 'react';
-
+import React, {useEffect} from 'react';
+import logo from '../../static/logoFood.png';
 
 const footerStyle = {
-  position: 'fixed',
-  left: 0,
-  bottom: 0,
   padding: '20px',
   width: '100%',
   textAlign: 'center',
@@ -13,21 +10,20 @@ const footerStyle = {
 export default function HomePage() {
   return (
     <>
-      <h1 className="display-1">Uber Delivery</h1>
-      <p className="lead">
-        Feel free to use as a starting point for your project
-      </p>
-      <p>
-        This is a sample React application using React Bootstrap component
-        library. It also shows how to do data fetching with React hooks. For
-        more information refer to README of the repo, or React-Bootstrap,
-        Bootstrap and React docs.
-      </p>
+      
+      <div className="row">
+        <div className="col-md-6"><img src={logo} alt="Logo" /></div>
+        <div className="col-md-6">
+          <h1 style={{ marginLeft: "20%", paddingLeft: 0, textAlign: 'left', marginTop:"50%", fontSize:55}} >Uber Delivery</h1>
+          <h1 > </h1>
+          <p style={{marginLeft: "23%"}}>Amazing and Delicious Food in one place!</p>
+        </div>
+      </div>
       <footer style={footerStyle}>
         <blockquote className="blockquote text-center">
-          <p><small>Do or do not. There is no try.</small></p>
-          <div className="blockquote-footer">
-            Yoda
+          <p><small>Made in 2022, by Samovila team</small></p>
+          <div>
+            Uber
           </div>
         </blockquote>
       </footer>

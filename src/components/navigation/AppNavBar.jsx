@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import AppRouteSwitch from './AppRouteSwitch';
+import './Style.css';
 
 function MenuLink({ children, ...props }) {
   return (
@@ -25,14 +26,8 @@ export default function AppNavBar() {
         <Container>
           <Navbar.Brand>Uber Delivery</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link as="div"><MenuLink to="/">Home</MenuLink></Nav.Link>
-            {/*<Nav.Link as="div"><MenuLink to="/planets">Planets</MenuLink></Nav.Link>*/}
-            {/*<Nav.Link as="div"><MenuLink to="/character">Character</MenuLink></Nav.Link>*/}
-            <Nav.Link as="div"><MenuLink to="/restaurants">Restaurants</MenuLink></Nav.Link>
-            {/* eslint-disable-next-line max-len */}
-            {/* <Nav.Link as="div"><MenuLink to="/restaurants/:id/items">Items</MenuLink></Nav.Link> */}
-            {/* <Nav.Link as="div"><MenuLink to="/restaurant">Restaurant</MenuLink></Nav.Link> */}
-            {/* <Nav.Link as="div"><MenuLink to="/restaurants/:id/item">Item</MenuLink></Nav.Link> */}
+            <Nav.Link as="div"><MenuLink className="navlink" to="/">Home</MenuLink></Nav.Link>
+            <Nav.Link as="div"><MenuLink className="navlink" to="/restaurants">Restaurants</MenuLink></Nav.Link>
           </Nav>
         </Container>
       </Navbar>

@@ -46,8 +46,9 @@ export default function ItemsPage() {
           variant="primary"
           type="submit"
           style={{
-            backgroundColor: 'blue',
-            border: '8px, black',
+            backgroundColor: '#80F366', 
+            border: '8px black', 
+            color: 'black',
             width: '10%',
             left: '90%',
             position: 'relative',
