@@ -72,8 +72,8 @@ export default function RestaurnatsPage() {
           variant="primary"
           type="submit"
           style={{
-            backgroundColor: 'blue',
-            border: '8px, black',
+            backgroundColor: '#F15673',
+            border: '8px black',
             width: '10%',
             left: '90%',
             position: 'relative',
