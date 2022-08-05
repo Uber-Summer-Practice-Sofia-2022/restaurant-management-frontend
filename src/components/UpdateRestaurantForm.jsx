@@ -16,17 +16,17 @@ export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
 
   const handleDeliveryPriceChange = (event) => setValues({
     ...values,
-    deliveryPrice: event.target.value,
+    delivery_price: event.target.value,
   });
 
   const handleOpeningHoursChange = (event) => setValues({
     ...values,
-    openHours: event.target.value,
+    open_hours: event.target.value,
   });
 
   const handleClosingHoursChange = (event) => setValues({
     ...values,
-    closeHours: event.target.value,
+    close_hours: event.target.value,
   });
 
   return (
@@ -46,7 +46,7 @@ export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
 
       <Form.Group className="mb-3" controlId="formDeliveryPrice">
         <FloatingLabel label="Delivery Price">
-          <Form.Control required type="number" step="0.01" min="2" placeholder="Enter delivery price" value={values.deliveryPrice} onChange={handleDeliveryPriceChange} />
+          <Form.Control required type="number" step="0.01" min="2" placeholder="Enter delivery price" value={values.delivery_price} onChange={handleDeliveryPriceChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
           Minimum 2 BGN.
@@ -55,7 +55,7 @@ export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
 
       <Form.Group className="mb-3" controlId="formOpeningHours">
         <FloatingLabel label="Opening hours">
-          <Form.Control required type="time" step="1" placeholder="Enter opening hours" value={values.openingHours} onChange={handleOpeningHoursChange} />
+          <Form.Control required type="time" step="1" placeholder="Enter opening hours" value={values.open_hours} onChange={handleOpeningHoursChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
           Required format: HH:MM:SS
@@ -64,7 +64,7 @@ export default function UpdateRestaurantForm({ values, setValues, onSubmit }) {
 
       <Form.Group className="mb-3" controlId="formOpeningHours">
         <FloatingLabel label="Closing hours">
-          <Form.Control required type="time" step="1" placeholder="Enter closing hours" value={values.closingHours} onChange={handleClosingHoursChange} />
+          <Form.Control required type="time" step="1" placeholder="Enter closing hours" value={values.close_hours} onChange={handleClosingHoursChange} />
         </FloatingLabel>
         <Form.Text className="text-muted">
           Required format: HH:MM:SS

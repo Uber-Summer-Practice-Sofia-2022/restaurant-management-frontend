@@ -10,9 +10,9 @@ const restAPI_URL = 'http://127.0.0.1:5000';
 const INITIAL_VALUES = {
   name: '',
   address: '',
-  deliveryPrice: '',
-  openHours: '',
-  closeHours: '',
+  delivery_price: '',
+  open_hours: '',
+  close_hours: '',
 };
 
 function ImageContainer(props) {
@@ -47,9 +47,9 @@ export default function UpdateRestaurantPage() {
     setValues({
       name: data.name,
       address: data.address,
-      deliveryPrice: data.delivery_price,
-      openHours: data.open_hours,
-      closeHours: data.close_hours,
+      delivery_price: data.delivery_price,
+      open_hours: data.open_hours,
+      close_hours: data.close_hours,
     });
   };
 
@@ -82,9 +82,9 @@ export default function UpdateRestaurantPage() {
 
     formData.append('name', values.name);
     formData.append('address', values.address);
-    formData.append('delivery_price', values.deliveryPrice);
-    formData.append('open_hours', values.openHours);
-    formData.append('close_hours', values.closeHours);
+    formData.append('delivery_price', values.delivery_price);
+    formData.append('open_hours', values.open_hours);
+    formData.append('close_hours', values.close_hours);
 
     const updateResult = await postData(`${restAPI_URL}/restaurants/${restaurant_id}`, formData);
     window.location = ('http://localhost:3000/restaurants');
